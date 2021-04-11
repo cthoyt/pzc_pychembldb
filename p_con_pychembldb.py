@@ -3,13 +3,16 @@
 
 import csv
 import gzip
+import math
 import optparse
 import os
-import re
+import pickle
 from pickle import Unpickler
 
-from pychembldb import *
-from pylab import *
+import numpy as np
+import pandas as pd
+from matplotlib.pylab import *
+from pychembldb import ComponentSequence, chembldb
 from rdkit import Chem
 from rdkit.Chem import AllChem, Descriptors
 from rdkit.ML.Descriptors import MoleculeDescriptors
