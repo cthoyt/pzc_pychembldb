@@ -716,7 +716,7 @@ class p_con:
             print(y_test)
             conf_matrix = metrics.confusion_matrix(y_test, y_predict)
             if conf_matrix.shape == (1, 1):
-                conf_matrix = np.array([[conf_matrix[0][0], 0], [0, conf_martix[0][0]]])
+                conf_matrix = np.array([[conf_matrix[0][0], 0], [0, conf_matrix[0][0]]])
             #                coh_kappa = cohenskappa.cohens_kappa(conf_matrix)
             coh_kappa = cohens_kappa(conf_matrix)
             kappa = round(coh_kappa["kappa"], 3)
@@ -1309,7 +1309,7 @@ class p_con:
             try:
                 pattern = calculator.CalcDescriptors(sample)
                 use = True
-            except e:
+            except Exception:
                 sys.stderr.write("Error computing descriptors for %s, skip" % sample)
 
             if use:
