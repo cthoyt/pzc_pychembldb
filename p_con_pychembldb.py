@@ -1,30 +1,23 @@
 # coding=utf-8
 # Copyright (c) 2014 Merck KGaA
 
-import os, re, gzip, json, requests, sys, optparse, csv
-from rdkit import Chem
-from rdkit.Chem import AllChem
-from rdkit.Chem import SDWriter
-from rdkit.Chem import Descriptors
-from rdkit.ML.Descriptors import MoleculeDescriptors
-from scipy import interp
-from scipy import stats
-from sklearn.ensemble import RandomForestClassifier
-from sklearn import metrics
-from sklearn.model_selection import train_test_split
-from sklearn.model_selection import cross_val_score
-from sklearn.metrics import roc_curve, auc
-from sklearn.metrics import precision_score, recall_score
-from sklearn import preprocessing
-import pickle
+import csv
+import gzip
+import optparse
+import os
+import re
 from pickle import Unpickler
-import numpy as np
-import math
-from pylab import *
-from sklearn.metrics import make_scorer
 
-# Added
 from pychembldb import *
+from pylab import *
+from rdkit import Chem
+from rdkit.Chem import AllChem, Descriptors
+from rdkit.ML.Descriptors import MoleculeDescriptors
+from scipy import stats
+from sklearn import metrics
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import make_scorer
+from sklearn.model_selection import cross_val_score, train_test_split
 
 kappa_template = """\
 %(kind)s Kappa Coefficient
